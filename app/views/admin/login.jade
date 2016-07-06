@@ -1,0 +1,27 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title JC后台管理登陆页面
+    include ./includes/head
+  body
+    .login_wrap
+      .login_photo 
+      form.form_wrap#login_form(method="post", action="loginUp")
+        .input_wrap
+          label.label 账号
+          input.input_unit#name_input(autocomplete="off", type="text", name="user[name]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+          span.void
+        .input_wrap
+          label.label 密码
+          input.input_unit#pwd_input(type="password", name="user[pwd]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+          span.void
+        .input_wrap_check
+          .check_wrap
+            label.label 验证码
+            input.input_unit.check_unit#check_input(autocomplete="off", type="text", name="user[check]", value="", onfocus="this.parentNode.className = 'check_wrap have_shadow'", onblur="this.parentNode.className = 'check_wrap'")
+            span.void
+          .identifying_code
+            canvas(width="120", height="40")
+        .btn_wrap
+          .submit_btn#login_btn 提&nbsp;交

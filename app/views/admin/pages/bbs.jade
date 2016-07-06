@@ -1,0 +1,59 @@
+#bbs.sec.clear(data-hash="#bbs")
+  #message.se_con.clear(data-hash="#message", style="display: block;")
+    #MessageList.message
+      .messageHead 留言与部分回复
+        span.ico
+      .messageList
+        ul#showList.clear
+      .messageFoot(style="opacity: 1;")
+        #messageFootC.messageFootC(style="opacity: 1;")
+          span.messageBtn.messageNub(nub="1",style="display: inline-block;") 首页
+          span.messageBtn.messageNub(nub="4", style="display: inline-block;") 上一页
+          p#alink.messagePage
+          span.messageBtn.messageNub(nub="6", style="display: inline-block;") 下一页
+          span.messageBtn.messageNub(nub="42", style="display: inline-block;") 末页
+          span.ico
+    .studentMBox.messageAside.scrollBar(style="opacity: 1;")
+      .studentMBoxHead 留言板
+      form.messageTable
+        table
+          tbody
+            tr.tr1
+              th 主题
+              td(colspan="2")
+                .messageTableRow.messageInput1
+                  input(type="text" value="输入主题或关于什么" maxlength="20" name="theme" id="theme" onfocus="if(this.value=='输入主题或关于什么'){this.value=''}" onblur="if(this.value==''){this.value='输入主题或关于什么'}")
+            tr.tr1
+              th 姓名
+              td(colspan="2")
+                .messageTableRow.messageInput1
+                  input(type="text" value="输入名字或昵称" maxlength="5" name="name" id="name" onfocus="if(this.value=='输入名字或昵称'){this.value=''}" onblur="if(this.value==''){this.value='输入名字或昵称'}")
+            tr.tr1
+              th 内容
+              td(colspan="2")
+                textarea(name="content" id="content" class="miaovInput" maxlength="220" required)
+            tr.tr1
+              th 联系你
+              td(colspan="2")
+                .messageTableRow.messageInput1
+                  input(type="text" value="填电话或者邮箱" maxlength="11" name="phone" id="phone" onfocus="if(this.value=='填电话或者邮箱'){this.value=''}" onblur="if(this.value==''){this.value='填电话或者邮箱'}")
+            tr.tr1
+              th 验证
+              td(width="140")
+                .messageTableRow.messageInput3
+                  input(type="text" name="verification" id="code" class="miaovInput verificat" maxlength="4" required)
+                  span.textShow.miaovInputText
+                    span.ico#ico
+              td
+                .verification_box
+                  .verification
+                    img(src="${ctx}/admin/login/jpg" id="codeimg" onClick="this.src='${ctx}/admin/login/jpg?id='+Math.random()*10" title="点击更新验证码"  width="75" height="24")
+            
+        #photo
+          img(src="./static/imgs/pic01.png")
+          span 点击选择个性头像
+        .btn
+          #sendAjax.submit 发表留言
+        #powerBy
+          span.wordPowerBy PowerBy
+          .powerBy

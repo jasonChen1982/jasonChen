@@ -1,0 +1,146 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    title JC后台管理登陆页面
+    include ./includes/manageHead
+  body
+    .side_menu_wrap
+      ul.side_menu
+        li.menu_unit(data-hash="#index")
+          .menu_face
+            .menu_face_front 首页
+            .menu_face_back 首页
+        li.menu_unit(data-hash="#example")
+          .menu_face
+            .menu_face_front 成功案例
+            .menu_face_back 成功案例
+        //-li.menu_unit(data-hash="#superioity")
+          .menu_face
+            .menu_face_front 我的优势
+            .menu_face_back 我的优势
+        //-li.menu_unit(data-hash="#conversation")
+          .menu_face
+            .menu_face_front 技术交流
+            .menu_face_back 技术交流
+        li.menu_unit(data-hash="#about")
+          .menu_face
+            .menu_face_front 关于我们
+            .menu_face_back 关于我们
+        li.menu_unit(data-hash="#bbs")
+          .menu_face
+            .menu_face_front BBS论坛
+            .menu_face_back BBS论坛
+        li.menu_unit(data-hash="#register")
+          .menu_face
+            .menu_face_front 用户管理
+            .menu_face_back 用户管理
+    .content_window
+      .example_wrap.sec#MNGindex(data-hash="#index")
+        iframe.target_iframe(name="index_target")
+        form.example_form#index_form(target="index_target", method="post", enctype="multipart/form-data", action="/createExample")
+          .input_wrap
+            label.label 链接
+            input.input_unit#index_title_input(autocomplete="off", type="text", name="index[title]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .input_wrap
+            label.label 图片
+            input.input_unit.lineheight30#index_preViewPic_input(type="file", name="preViewPic")
+            span.void
+          .btn_wrap
+            .submit_btn#index_submit 提&nbsp;交
+      .example_wrap.sec#MNGexample(data-hash="#example")
+        iframe.target_iframe(name="example_target")
+        form.example_form#example_form(target="example_target", method="post", enctype="multipart/form-data", action="/createExample")
+          .input_wrap
+            label.label 标题
+            input.input_unit#example_title_input(autocomplete="off", type="text", name="example[title]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .input_wrap
+            label.label 描述
+            input.input_unit#example_content_input(autocomplete="off", type="textarea", name="example[content]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .input_wrap
+            label.label 缩略图
+            input.input_unit.lineheight30#example_preViewPic_input(type="file", name="preViewPic")
+            span.void
+          ul.content_wrap#content_wrap
+            li.addedOnePic
+              input.li_input_unit(type="file", name="contentPic0")
+              input.li_input_unit(autocomplete="off", type="text", name="contents[text0]", value="")
+            li.addOnePic#addOnePic +
+          .btn_wrap
+            .submit_btn#submit_example 提&nbsp;交
+      .example_wrap.sec#MNGabout(data-hash="#about")
+        iframe.target_iframe(name="about_target")
+        form.example_form#about_form(target="about_target", method="post", enctype="multipart/form-data", action="/createExample")
+          .input_wrap
+            label.label 姓名
+            input.input_unit#about_title_input(autocomplete="off", type="text", name="about[title]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .input_wrap
+            label.label 简介
+            input.input_unit#about_content_input(autocomplete="off", type="textarea", name="about[content]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .input_wrap
+            label.label 艺术照
+            input.input_unit.lineheight30#about_preViewPic_input(type="file", name="preViewPic")
+            span.void
+          .input_wrap
+            label.label 头像
+            input.input_unit.lineheight30#about_preViewPic_input(type="file", name="preViewPic")
+            span.void
+          .btn_wrap
+            .submit_btn#submit_about 提&nbsp;交
+      .sec.clear#MNGbbs(data-hash="#bbs")
+        #message.se_con.clear(data-hash="#message", style="display: block;")
+          #MessageList.messageC
+            .messageHead
+              p#title 留言与部分回复
+              span.ico
+            .messageList#messageList
+              ul#showList.clear
+            .messageFoot(style="opacity: 1;")
+              #messageFootC.messageFootC(style="opacity: 1;")
+                span.messageBtn.messageNub(nub="1",style="display: inline-block;") 首页
+                span.messageBtn.messageNub(nub="4", style="display: inline-block;") 上一页
+                p#alink.messagePage
+                span.messageBtn.messageNub(nub="6", style="display: inline-block;") 下一页
+                span.messageBtn.messageNub(nub="42", style="display: inline-block;") 末页
+                span.ico
+          .studentMBox.messageAside.scrollBar#replyBlank(style="opacity: 1;")
+            #blankTitle.studentMBoxHead 回复板
+            form.messageTable
+              table
+                tbody
+                  tr.tr1
+                    th 姓名
+                    td(colspan="2")
+                      .messageTableRow.messageInput1
+                        input(type="text" value="输入名字或昵称" maxlength="5" name="name" id="name" onfocus="if(this.value=='输入名字或昵称'){this.value=''}" onblur="if(this.value==''){this.value='输入名字或昵称'}")
+                  tr.tr1
+                    th 内容
+                    td(colspan="2")
+                      textarea(name="content" id="content" class="miaovInput" maxlength="220" required)
+              .btn
+                #sendAjax.submit 发表留言
+              #powerBy
+                span.wordPowerBy PowerBy
+                .powerBy
+      .login_wrap.sec#MNGregister(data-hash="#register")
+        .login_photo 
+        form.form_wrap#MNGregister(method="post", action="/admin/register")
+          .input_wrap
+            label.label 账号
+            input.input_unit#name_input(autocomplete="off", type="text", name="user[name]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .input_wrap
+            label.label 密码
+            input.input_unit#pwd_input(type="password", name="user[pwd]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .input_wrap
+            label.label.small_font 确认密码
+            input.input_unit#pwdcheck_input(type="password", name="user[checkpwd]", value="", onfocus="this.parentNode.className = 'input_wrap have_shadow'", onblur="this.parentNode.className = 'input_wrap'")
+            span.void
+          .btn_wrap
+            .submit_btn#submit_btn 提&nbsp;交
