@@ -14,13 +14,13 @@ app.set('view engine', 'jade')
 
 
 app.use(express.static(path.join(__dirname, 'public')));
-// parse application/json 
+// parse application/json
 app.use(bodyParser.json())
-// parse application/x-www-form-urlencoded 
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(multer({
-	dest: './public/imgCache'
+	dest: './public/warehouse'
 }));
 
 

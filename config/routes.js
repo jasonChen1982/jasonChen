@@ -1,7 +1,7 @@
-var Index = require('../app/controllers/index')
-var Login = require('../app/controllers/login')
-var Bbs = require('../app/controllers/bbs')
-var Example = require('../app/controllers/example')
+var Index = require('../app/controller/index')
+var Login = require('../app/controller/login')
+var Bbs = require('../app/controller/bbs')
+var Example = require('../app/controller/example')
 
 module.exports = function (app){
 
@@ -23,7 +23,7 @@ module.exports = function (app){
   app.post('/addMessage', Bbs.addMessage);
 
 
-// 
+//
   app.get('/admin/login', Login.login)
   app.post('/admin/loginUp', Login.loginUp)
   app.post('/admin/register', Login.register)
