@@ -1,26 +1,48 @@
 {
-  "name": "jason82",
+  "name": "jasonchen",
   "version": "1.0.0",
-  "description": "my blog",
-  "main": "app.js",
+  "description": "",
+  "private": true,
   "dependencies": {
-    "body-parser": "^1.12.0",
-    "connect-mongo": "^0.8.2",
-    "express": "^4.12.1",
-    "express-session": "^1.11.3",
-    "jade": "^1.11.0",
-    "moment": "^2.9.0",
-    "mongoose": "^4.4.0",
-    "multer": "^0.1.8",
-    "underscore": "^1.8.2"
+    "egg": "^0.9.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "egg-bin": "^2.0.2",
+    "egg-ci": "^1.1.0",
+    "egg-mock": "^2.1.0",
+    "eslint": "^3.13.1",
+    "eslint-config-egg": "^3.2.0",
+    "supertest": "^2.0.1",
+    "webstorm-disable-index": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "egg-bin dev",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
   },
-  "keywords": [
-    "jasonChen"
-  ],
-  "author": "jasonChen",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jasonChen1982/jasonChen.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "boilerplate": {
+    "name": "egg-boilerplate-simple",
+    "version": "2.1.0",
+    "description": "boilerplate for egg quickstart",
+    "repository": {
+      "type": "git",
+      "url": "git@github.com:eggjs/egg-boilerplate-simple.git"
+    },
+    "homepage": "https://github.com/eggjs/egg-boilerplate-simple"
+  }
 }
