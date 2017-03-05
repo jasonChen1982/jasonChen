@@ -2,6 +2,10 @@
   "extends": "eslint-config-egg",
   "rules": {
   },
+  "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+  },
   "globals": {
     "app": true,
     "request": true,
