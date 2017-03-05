@@ -1,10 +1,15 @@
 'use strict';
 
+const path = require('path');
 module.exports = appInfo => {
-  const config = {};
-
-  // should change to your own
-  config.keys = appInfo.name + '123456';
-
-  return config;
+  return {
+    keys: appInfo.name,
+    view: {
+      mapping: {
+        '.html': 'nunjucks',
+      },
+      defaultExtension: '.html',
+      root: path.join(appInfo.baseDir, 'app/views'),
+    },
+  };
 };

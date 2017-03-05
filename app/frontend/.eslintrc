@@ -1,7 +1,4 @@
 {
-  "extends": "eslint-config-egg",
-  "rules": {
-  },
   "parserOptions": {
       "ecmaVersion": 6,
       "sourceType": "module"

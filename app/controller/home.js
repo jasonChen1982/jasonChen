@@ -1,5 +1,12 @@
 'use strict';
 
+const serialize = require('serialize-javascript');
+
 exports.index = function* index() {
-  this.body = 'hi, egg';
+  const state = serialize({}, { isJSON: true });
+  const html = 'index page';
+  yield this.render('index.html', {
+    html,
+    state,
+  });
 };

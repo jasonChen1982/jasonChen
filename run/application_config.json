@@ -12,25 +12,52 @@
       "maxAge": 86400000,
       "key": "EGG_SESS",
       "httpOnly": true,
-      "encrypt": true
+      "encrypt": true,
+      "overwrite": true,
+      "signed": true
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dir": "/Users/jason82/Documents/web前端/github/jasonChen/config/locales",
       "queryField": "locale",
       "cookieField": "locale",
-      "cookieMaxAge": "1y"
+      "cookieMaxAge": "1y",
+      "functionName": "__",
+      "dirs": [
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-onerror/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-userservice/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-userrole/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-session/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-i18n/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-validate/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-watcher/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-multipart/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-security/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-development/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-schedule/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-logrotator/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-static/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-jsonp/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-view/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-view-nunjucks/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg/config/locales",
+        "/Users/jason82/Documents/web前端/github/jasonChen/config/locales"
+      ]
     },
     "watcher": {
-      "type": "development"
+      "type": "development",
+      "eventSources": {
+        "default": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-watcher/lib/event-sources/default",
+        "development": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-watcher/lib/event-sources/development"
+      }
     },
     "multipart": {
       "autoFields": false,
       "defaultCharset": "utf8",
       "fieldNameSize": 100,
-      "fieldSize": "100kb",
+      "fieldSize": 102400,
       "fields": 10,
-      "fileSize": "10mb",
+      "fileSize": 10485760,
       "files": 10,
       "fileExtensions": [],
       "whitelist": null
@@ -99,9 +126,32 @@
       "preload": false,
       "buffer": false
     },
+    "jsonp": {
+      "limit": 50,
+      "callback": "_callback",
+      "csrf": false
+    },
+    "view": {
+      "root": [
+        "/Users/jason82/Documents/web前端/github/jasonChen/app/views"
+      ],
+      "cache": false,
+      "defaultExtension": ".html",
+      "defaultViewEngine": "",
+      "mapping": {
+        ".html": "nunjucks"
+      }
+    },
+    "nunjucks": {
+      "autoescape": true,
+      "throwOnUndefined": false,
+      "trimBlocks": false,
+      "lstripBlocks": false,
+      "cache": false
+    },
     "env": "local",
     "name": "jasonchen",
-    "keys": "jasonchen123456",
+    "keys": "jasonchen",
     "proxy": false,
     "protocolHeaders": "x-forwarded-proto",
     "ipHeaders": "x-forwarded-for",
@@ -136,13 +186,15 @@
       "private": true,
       "dependencies": {
         "cross-env": "^3.1.3",
+        "egg": "^1.0.0-rc.2",
+        "egg-view-nunjucks": "^2.0.0",
+        "serialize-javascript": "^1.3.0",
         "es6-promise": "^4.0.5",
         "vue": "^2.1.10",
         "vue-router": "^2.1.0",
         "vue-server-renderer": "^2.1.10",
         "vuex": "^2.1.0",
-        "vuex-router-sync": "^4.0.2",
-        "egg": "^0.9.0"
+        "vuex-router-sync": "^4.0.2"
       },
       "devDependencies": {
         "autod": "^2.7.1",
@@ -154,6 +206,8 @@
         "rimraf": "^2.5.4",
         "stylus": "^0.54.5",
         "stylus-loader": "^2.4.0",
+        "css-loader": "^0.26.2",
+        "file-loader": "^0.10.1",
         "url-loader": "^0.5.7",
         "vue-loader": "^10.0.2",
         "vue-template-compiler": "^2.1.8",
@@ -167,8 +221,7 @@
     "HOME": "/Users/jason82",
     "rundir": "/Users/jason82/Documents/web前端/github/jasonChen/run",
     "notfound": {
-      "pageUrl": "",
-      "enableRedirect": false
+      "pageUrl": ""
     },
     "siteFile": {
       "/favicon.ico": {
@@ -14394,7 +14447,8 @@
       "errorLogName": "common-error.log",
       "coreLogger": {
         "consoleLevel": "WARN"
-      }
+      },
+      "type": "application"
     },
     "httpclient": {
       "keepAlive": true,
@@ -14408,23 +14462,38 @@
       "meta",
       "siteFile",
       "notfound",
+      "static",
       "bodyParser",
-      "overrideMethod"
+      "userservice",
+      "session",
+      "i18n",
+      "securities"
     ],
-    "jsonp": {
-      "callback": "_callback",
-      "limit": 50
-    },
     "workerStartTimeout": 600000,
     "coreMiddlewares": [
       "meta",
       "siteFile",
       "notfound",
+      "static",
       "bodyParser",
-      "overrideMethod"
+      "userservice",
+      "session",
+      "i18n",
+      "securities"
     ],
     "appMiddlewares": [],
-    "appMiddleware": []
+    "appMiddleware": [],
+    "multipartParseOptions": {
+      "autoFields": false,
+      "defCharset": "utf8",
+      "limits": {
+        "fieldNameSize": 100,
+        "fieldSize": 102400,
+        "fields": 10,
+        "fileSize": 10485760,
+        "files": 10
+      }
+    }
   },
   "plugins": {
     "onerror": {
@@ -14469,7 +14538,7 @@
       "env": [],
       "from": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg/config/plugin.js",
       "path": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-session",
-      "version": "1.1.0"
+      "version": "2.1.0"
     },
     "i18n": {
       "enable": true,
@@ -14502,7 +14571,7 @@
       "env": [],
       "from": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg/config/plugin.js",
       "path": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-watcher",
-      "version": "1.0.0"
+      "version": "2.1.0"
     },
     "multipart": {
       "enable": true,
@@ -14526,7 +14595,7 @@
       "env": [],
       "from": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg/config/plugin.js",
       "path": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-security",
-      "version": "1.5.0"
+      "version": "1.6.0"
     },
     "development": {
       "enable": true,
@@ -14576,7 +14645,45 @@
       "env": [],
       "from": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg/config/plugin.js",
       "path": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-static",
-      "version": "1.1.0"
+      "version": "1.2.0"
+    },
+    "jsonp": {
+      "enable": true,
+      "package": "egg-jsonp",
+      "name": "jsonp",
+      "dependencies": [],
+      "optionalDependencies": [
+        "security"
+      ],
+      "env": [],
+      "from": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg/config/plugin.js",
+      "path": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-jsonp",
+      "version": "1.0.0"
+    },
+    "view": {
+      "enable": true,
+      "package": "egg-view",
+      "name": "view",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg/config/plugin.js",
+      "path": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-view",
+      "version": "1.0.1"
+    },
+    "nunjucks": {
+      "enable": true,
+      "package": "egg-view-nunjucks",
+      "name": "nunjucks",
+      "dependencies": [
+        "security",
+        "view"
+      ],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "/Users/jason82/Documents/web前端/github/jasonChen/config/plugin.js",
+      "path": "/Users/jason82/Documents/web前端/github/jasonChen/node_modules/egg-view-nunjucks",
+      "version": "2.0.0"
     }
   }
 }
