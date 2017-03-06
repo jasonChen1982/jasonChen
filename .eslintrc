@@ -1,12 +1,9 @@
 {
   "extends": "eslint-config-egg",
-  "parser": "babel-eslint",
-  "parserOptions": {
-      "ecmaFeatures": {
-        "destructuring": true,
-        "spread": true,
-        "restParams": true
-      }
+  "parserOptions":{
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   },
   "rules": {
   },
