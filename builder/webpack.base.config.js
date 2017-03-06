@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const vueConfig = require('./vue-loader.config');
 

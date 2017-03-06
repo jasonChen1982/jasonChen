@@ -1,5 +1,13 @@
 {
   "extends": "eslint-config-egg",
+  "parser": "babel-eslint",
+  "parserOptions": {
+      "ecmaFeatures": {
+        "destructuring": true,
+        "spread": true,
+        "restParams": true
+      }
+  },
   "rules": {
   },
   "globals": {
@@ -7,6 +15,6 @@
     "request": true,
     "mm": true,
     "mock": true,
-    "assert": true,
+    "assert": true
   }
 }

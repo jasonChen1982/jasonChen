@@ -1,3 +1,5 @@
+'use strict';
+
 const webpack = require('webpack');
 const base = require('./webpack.base.config');
 const vueConfig = require('./vue-loader.config');
