@@ -2,12 +2,20 @@ sudo: false
 language: node_js
 node_js:
 - '6'
+before_install:
+- openssl aes-256-cbc -K $encrypted_0ea7e971a01a_key -iv $encrypted_0ea7e971a01a_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- echo -e "Host 120.24.244.31\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
 - npm i
 script:
 - npm run ci
 after_script:
 - codecov
-before_install:
-- openssl aes-256-cbc -K $encrypted_0ea7e971a01a_key -iv $encrypted_0ea7e971a01a_iv
-  -in id_rsa.enc -out ./.ssh/id_rsa -d
+after_success:
+  - npm prune --production  # 删除devDependencies
+  - tar -jcf jasonchen-server.tar.bz2 *    # 打包并压缩代码
+  - scp jasonchen-server.tar.bz2 root@120.24.244.31:~/  # 复制到生产服务器上
+  - ssh root@120.24.244.31 'mkdir -p jasonchen-server && tar -jxf jasonchen-server.tar.bz2 -C jasonchen-server'   # 解压
+  - ssh root@120.24.244.31 'cd jasonchen-server'  # 重启pm2
