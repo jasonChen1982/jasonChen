@@ -1,10 +1,13 @@
 sudo: false
 language: node_js
 node_js:
-  - '6'
+- '6'
 install:
-  - npm i npminstall && npminstall
+- npm i
 script:
-  - npm run ci
+- npm run ci
 after_script:
-  - npminstall codecov && codecov
+- codecov
+before_install:
+- openssl aes-256-cbc -K $encrypted_0ea7e971a01a_key -iv $encrypted_0ea7e971a01a_iv
+  -in id_rsa.enc -out ./.ssh/id_rsa -d
